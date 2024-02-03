@@ -14,7 +14,7 @@ int interpret(FILE *file)
 	unsigned int line_number = 0;
 	char *opcode;
 	int i = 0;
-	instruction_t opcodes[] = {{"push", push},
+	instruction_t opcodes[] = {{"push", push}, {"nop", nop}, {"add", add},
 	{"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap},
 	{NULL, NULL}
 	};
