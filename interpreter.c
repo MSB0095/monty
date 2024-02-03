@@ -15,7 +15,7 @@ int interpret(FILE *file)
 	char *opcode;
 	int i = 0;
 	instruction_t opcodes[] = {{"push", push},
-	{"pall", pall}, {"pint", pint}, {"pop", pop},
+	{"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap},
 	{NULL, NULL}
 	};
 
