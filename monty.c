@@ -26,5 +26,6 @@ int main(int argc, char **argv)
 		{
 			interpret(file);
 		}
-		return (0);	}
+		return (0);
+	}
 }

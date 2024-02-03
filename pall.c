@@ -3,6 +3,7 @@
 /**
  * pall - prints all the values on the stack
  * @stack: pointer to the top of the stack
+ * @line_number: line number of the opcode in the file(voided)
  * Return: void
 */
 

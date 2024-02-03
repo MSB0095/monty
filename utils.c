@@ -24,25 +24,42 @@ void free_stack(stack_t *stack)
 */
 int is_integer(char *str)
 {
-    int i = 0;
+	int i = 0;
 
-    if (str == NULL)
-    {
-        return (0);
-    }
+	if (str == NULL)
+	{
+		return (0);
+	}
 
-    if (str[0] == '-')
-    {
-        i = 1;
-    }
+	if (str[0] == '-')
+	{
+		i = 1;
+	}
 
-    for (; str[i] != '\0'; i++)
-    {
-        if (isdigit((unsigned char) str[i]) == 0)
-        {
-            return (0);
-        }
-    }
+	for (; str[i] != '\0'; i++)
+	{
+		if (isdigit((unsigned char) str[i]) == 0)
+		{
+			return (0);
+		}
+	}
 
-    return (1);
+	return (1);
+}
+/**
+ * get_set_gbl_arg - gets or sets the global argument
+ * @new_value: the new value to set
+ * @set: 1 to set, 0 to get
+ * Return: the global argument
+*/
+int get_set_gbl_arg(int new_value, int set)
+{
+	static int gbl_arg;
+
+	if (set)
+	{
+		gbl_arg = new_value;
+	}
+
+	return (gbl_arg);
 }

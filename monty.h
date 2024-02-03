@@ -39,7 +39,12 @@ typedef struct instruction_s
 		char *opcode;
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-extern int gbl_arg;
+
+#ifndef GBL_ARG
+#define GBL_ARG(new_value, set) get_set_gbl_arg(new_value, set)
+#endif
+int get_set_gbl_arg(int new_value, int set);
+
 void free_stack(stack_t *stack);
 int is_integer(char *str);
 int interpret(FILE *file);

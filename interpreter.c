@@ -1,7 +1,5 @@
 #include "monty.h"
 
-int gbl_arg = 0;
-
 /**
  * interpret - a function to interpret a monty file
  * @file: the monty file
@@ -16,15 +14,13 @@ int interpret(FILE *file)
 	unsigned int line_number = 0;
 	char *opcode;
 	int i = 0;
-	instruction_t opcodes[] = {{"push", push} ,
-		{"pall", pall}/**,
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{NULL, NULL}
-	**/};
+	instruction_t opcodes[] = {{"push", push},
+	{"pall", pall},
+	{NULL, NULL}
+	};
+
+	GBL_ARG(0, 1);
+
 	read = getline(&line, &len, file);
 	while ((read) != -1)
 	{
@@ -38,6 +34,7 @@ int interpret(FILE *file)
 		if (strcmp(opcode, "push") == 0)
 		{
 			char *arg = strtok(NULL, " \n");
+
 			while (arg != NULL && *arg == '\0')
 			{
 				arg = strtok(NULL, " \n");
@@ -47,7 +44,7 @@ int interpret(FILE *file)
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
-			gbl_arg = atoi(arg);
+			GBL_ARG(atoi(arg), 1);
 		}
 		for (i = 0; opcodes[i].opcode != NULL; i++)
 		{
