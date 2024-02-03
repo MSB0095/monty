@@ -50,4 +50,5 @@ int is_integer(char *str);
 int interpret(FILE *file);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 #endif
